@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center">All studnet</h1>
+    {%if data%}
+
+    <table class="table w-50 m-auto">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Id</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for st in data %}
+        <tr>
+          <td>{{st.name}}</td>
+          <td>{{st.id}}</td>
+          <td>{{st.email}}</td>
+          <td><a href="{% url "delete_user" st.id %}" class="btn btn-danger text-white"> Delete </a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% else %} {% endif %}
+
+{% endblock content %}
+
+
